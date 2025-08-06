@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tracker - Coding Journal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      max-width: 600px;
+    }
+    h1 {
+      text-align: center;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      background: #f0f0f0;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tracker: Coding Journal</h1>
+
+  <textarea id="noteInput" placeholder="Write what I learned or did today here"></textarea>
+  <br />
+  <button onclick="addNote()">Add Note</button>
+
+  <h2>My Progress Notes</h2>
+  <ul id="notesList"></ul>
+
+  <script>
+    const notesList = document.getElementById('notesList');
+    const noteInput = document.getElementById('noteInput');
+
+    function addNote() {
+      const noteText = noteInput.value.trim();
+      if (noteText === '') {
+        alert('Please enter a note!');
+        return;
+      }
+      const li = document.createElement('li');
+      li.textContent = noteText;
+      notesList.appendChild(li);
+      noteInput.value = '';
+    }
+  </script>
+</body>
+</html>
 
